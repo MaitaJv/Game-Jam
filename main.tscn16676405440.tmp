@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2syatk0fq20k"]
+
+[ext_resource type="PackedScene" uid="uid://bqa65ginldjh2" path="res://escenas/planeta.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://c5e184njq2lwi" path="res://scripts/main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://4gxjwm3ru8j7" path="res://escenas/habitante.tscn" id="2_0xm2m"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_h2yge")
+
+[node name="Planeta" parent="." instance=ExtResource("1_0xm2m")]
+position = Vector2(584, 328)
+
+[node name="habitante" parent="." instance=ExtResource("2_0xm2m")]
+position = Vector2(582, 183)
+
+[node name="Camera2D" type="Camera2D" parent="habitante"]
+scale = Vector2(0.25, 0.25)
+zoom = Vector2(5, 5)
