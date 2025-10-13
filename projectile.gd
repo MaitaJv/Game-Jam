@@ -15,8 +15,9 @@ func _ready():
 	linear_velocity = Vector2(speed, 250)
 	planet.colision_planet.connect(choque)
 
-func choque():
-	queue_free()
+func choque(objeto):
+	if objeto == self:
+		queue_free()
 
 func _on_timer_timeout() -> void:
 	pass

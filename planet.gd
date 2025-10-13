@@ -1,10 +1,10 @@
 extends RigidBody2D
 @onready var projectile = load("res://projectile.tscn")
-signal colision_planet
+signal colision_planet(cuerpo)
 
 
 
-func _on_colision_area_body_entered(_body: Node2D) -> void:
+func _on_colision_area_body_entered(body: Node2D) -> void:
 	print("Colision")
 	#emit_signal("colision_planet")
-	colision_planet.emit()
+	colision_planet.emit(body)
