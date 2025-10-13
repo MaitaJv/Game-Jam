@@ -6,10 +6,13 @@ extends CharacterBody2D
 const MIRA = preload("uid://dpsg5dlxo7csm")
 
 @export var velocidad_valor = 50
+@export var gravedad = 20
 
 var movimientoAutomatico = false
 var ruta
 var objetivo_principal
+
+var sobre_piso = false
 
 enum cuadrante_obj {PRIMERO, SEGUNDO, TERCERO, CUARTO}
 
@@ -22,6 +25,9 @@ func _physics_process(delta):
 	var direccion = Input.get_axis("Caminar Izquierda", "Caminar Derecha")
 	
 	rotation = direccion_planeta.angle() - deg_to_rad(90)
+	
+	if !sobre_piso:
+		caer(direccion_planeta)
 	
 	if direccion:
 		desplazar(direccion, direccion_planeta)
@@ -51,6 +57,11 @@ func desplazar(direccion:float, direccion_planeta:Vector2):
 	velocity = direccion_planeta.orthogonal() * velocidad_valor * direccion
 	move_and_slide()
 
+func caer(direccion_planeta:Vector2):
+	animacion.play("caminar")
+	velocity = direccion_planeta * gravedad
+	move_and_slide()
+
 func ir_objetivo(click_position: Vector2):
 	var click_direccion = click_position - planeta.global_position
 	var radio = planeta.get_node("CollisionShape2D").shape.radius
@@ -72,9 +83,7 @@ func caminar_al_objetivo(objetivo_v: Vector2, objetivo: Vector2):
 	
 	var personaje_v = position - planeta.global_position
 	var ang = ang_entre_v(objetivo_v, personaje_v.normalized())
-	#var ruta = calcular_mejor_ruta(ang)
 	
-	ruta
 	if ang < 0:
 		ruta = 1
 	else:
@@ -82,15 +91,8 @@ func caminar_al_objetivo(objetivo_v: Vector2, objetivo: Vector2):
 	
 	print("angulo: ", ang)
 	
-	#var distancia = objetivo.distance_to(position)
 	objetivo_principal = objetivo
 	movimientoAutomatico = true
-	
-	#while distancia > 20:
-		#print("distancia: ", distancia)
-		#animacion.play("caminar")
-		#velocity = direccion_planeta.orthogonal() * velocidad_valor * ruta
-		#move_and_slide()
 
 func ang_entre_v(objetivo_v: Vector2, personaje_v: Vector2) -> float:
 	return objetivo_v.angle_to(personaje_v)
