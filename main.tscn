@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://cms3kj1gge5u7"]
+
+[ext_resource type="PackedScene" uid="uid://db4sjv21fqbtx" path="res://cannon.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://7nkhodu6m2w2" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://c3t7qr41i5ywy" path="res://floor.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://d22epk4buslmu" path="res://planet.tscn" id="4_1bvp3"]
+
+[node name="main" type="Node"]
+script = ExtResource("1_h2yge")
+
+[node name="cannon" parent="." instance=ExtResource("1_0xm2m")]
+position = Vector2(287, 124)
+
+[node name="floor" parent="." instance=ExtResource("2_h2yge")]
+position = Vector2(235, 274)
+
+[node name="planet" parent="." instance=ExtResource("4_1bvp3")]
+position = Vector2(780, 174)

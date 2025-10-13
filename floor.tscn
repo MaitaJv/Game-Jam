@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3t7qr41i5ywy"]
+
+[ext_resource type="Texture2D" uid="uid://csgdbcm2tp3hn" path="res://Stonewall_Spriteclip.png" id="1_oj3tl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cgngl"]
+size = Vector2(616, 106)
+
+[node name="floor" type="StaticBody2D"]
+position = Vector2(323, 268)
+collision_layer = 4
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_oj3tl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_cgngl")
