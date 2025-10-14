@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2awses23nx1t"]
+
+[ext_resource type="Texture2D" uid="uid://c5tr8ktg1ni55" path="res://Tiles/tile_0007.png" id="1_inwaq"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(7, 7)
+texture = ExtResource("1_inwaq")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dphetac0d17ov"]
+
+[ext_resource type="Texture2D" uid="uid://b45s2q1o8s5l0" path="res://Tiles/tile_0001.png" id="1_oko17"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("1_oko17")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://r0ik7d8lkeb7"]
+
+[ext_resource type="Texture2D" uid="uid://kbh30hpu2gg7" path="res://Tiles/tile_0005.png" id="1_qucon"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(7, 7)
+texture = ExtResource("1_qucon")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://boetkxc6qpun4"]
+
+[ext_resource type="Texture2D" uid="uid://c6ta63i2rt183" path="res://Naves/Nave2PlanetaC.png" id="1_w6rym"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(15, 15)
+texture = ExtResource("1_w6rym")
