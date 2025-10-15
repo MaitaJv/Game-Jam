@@ -1,10 +1,27 @@
-[gd_scene load_steps=7 format=3 uid="uid://bf7h25sdtd2l6"]
+[gd_scene load_steps=15 format=3 uid="uid://bf7h25sdtd2l6"]
 
 [ext_resource type="Texture2D" uid="uid://cxta3fou260qg" path="res://Naves/Nave1PlanetaA.png" id="1_njqv4"]
 [ext_resource type="Texture2D" uid="uid://cgd64asykrc2m" path="res://Naves/Motor.png" id="2_77tvt"]
+[ext_resource type="Texture2D" uid="uid://dgidm27rkgu7w" path="res://Balas/Nairan - Bolt.png" id="3_8bqe0"]
+[ext_resource type="Texture2D" uid="uid://dr8cfdj4tqcit" path="res://Balas/Nairan - Ray.png" id="4_yfhk1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3xwo"]
 size = Vector2(480, 390)
+
+[sub_resource type="Animation" id="Animation_yfhk1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Motor:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_8bqe0"]
 resource_name = "animacion fuego motor"
@@ -23,12 +40,36 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 2, 1, 0]
 }
 
-[sub_resource type="Animation" id="Animation_yfhk1"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l4cdd"]
+_data = {
+&"RESET": SubResource("Animation_yfhk1"),
+&"animacion fuego motor": SubResource("Animation_8bqe0")
+}
+
+[sub_resource type="Animation" id="Animation_l4cdd"]
+resource_name = "giro balita laser"
+length = 0.5
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Balita Laser:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_8qxmk"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Motor:frame")
+tracks/0/path = NodePath("Balita Laser:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -38,10 +79,49 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_l4cdd"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_atj5f"]
 _data = {
-&"RESET": SubResource("Animation_yfhk1"),
-&"animacion fuego motor": SubResource("Animation_8bqe0")
+&"RESET": SubResource("Animation_8qxmk"),
+&"giro balita laser": SubResource("Animation_l4cdd")
+}
+
+[sub_resource type="Animation" id="Animation_r4ydr"]
+resource_name = "animacion bala super laser"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_xuwke"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tbj16"]
+_data = {
+&"RESET": SubResource("Animation_xuwke"),
+&"animacion bala super laser": SubResource("Animation_r4ydr")
 }
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
@@ -55,16 +135,45 @@ texture = ExtResource("1_njqv4")
 position = Vector2(0, -15)
 shape = SubResource("RectangleShape2D_i3xwo")
 
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+[node name="Animacion Motor" type="AnimatableBody2D" parent="."]
 
-[node name="Motor" type="Sprite2D" parent="AnimatableBody2D"]
+[node name="Motor" type="Sprite2D" parent="Animacion Motor"]
 texture_filter = 1
 position = Vector2(0, 145.00002)
 scale = Vector2(5, 5)
 texture = ExtResource("2_77tvt")
 hframes = 8
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animacion Motor"]
 libraries = {
 &"": SubResource("AnimationLibrary_l4cdd")
+}
+
+[node name="Animacion Balita Laser" type="AnimatableBody2D" parent="."]
+
+[node name="Balita Laser" type="Sprite2D" parent="Animacion Balita Laser"]
+texture_filter = 1
+position = Vector2(-125, -240)
+scale = Vector2(10, 10)
+texture = ExtResource("3_8bqe0")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animacion Balita Laser"]
+libraries = {
+&"": SubResource("AnimationLibrary_atj5f")
+}
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+texture_filter = 1
+position = Vector2(130, -255)
+scale = Vector2(3, 3)
+texture = ExtResource("4_yfhk1")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D"]
+root_node = NodePath("../Sprite2D")
+libraries = {
+&"": SubResource("AnimationLibrary_tbj16")
 }
