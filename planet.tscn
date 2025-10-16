@@ -7,7 +7,7 @@
 radius = 129.09686
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a75xc"]
-radius = 177.0706
+radius = 274.06567
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x6khl"]
 radius = 132.0606
@@ -16,6 +16,7 @@ radius = 132.0606
 position = Vector2(482, 179)
 collision_layer = 2
 collision_mask = 0
+mass = 10.0
 gravity_scale = 0.0
 script = ExtResource("1_mtr83")
 metadata/_edit_group_ = true
@@ -34,12 +35,13 @@ gravity_space_override = 3
 gravity_point = true
 gravity_point_center = Vector2(0, 0)
 gravity_direction = Vector2(0, 0)
-gravity = 1500.0
+gravity = 500.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_a75xc")
 
 [node name="colisionArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="colisionArea"]
 shape = SubResource("CircleShape2D_x6khl")

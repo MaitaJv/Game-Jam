@@ -3,7 +3,7 @@ extends RigidBody2D
 
 @onready var planet: RigidBody2D = $"../planet"
 
-@export var speed = 400
+@export var speed = 600
 
 var dir : float
 var spawnPos : Vector2
@@ -18,6 +18,7 @@ func _ready():
 func choque(objeto):
 	if objeto == self:
 		queue_free()
+		print("body:", objeto)
 
 func _on_timer_timeout() -> void:
 	pass

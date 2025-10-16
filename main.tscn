@@ -1,18 +1,44 @@
-[gd_scene load_steps=5 format=3 uid="uid://cms3kj1gge5u7"]
+[gd_scene load_steps=8 format=3 uid="uid://cms3kj1gge5u7"]
 
 [ext_resource type="PackedScene" uid="uid://db4sjv21fqbtx" path="res://cannon.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://7nkhodu6m2w2" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c3t7qr41i5ywy" path="res://floor.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://dwbqexm11ovi7" path="res://weapon.tscn" id="2_lquwl"]
 [ext_resource type="PackedScene" uid="uid://d22epk4buslmu" path="res://planet.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://de5h7mxs8lay2" path="res://nave.tscn" id="6_7mycd"]
+
+[sub_resource type="Curve2D" id="Curve2D_1bvp3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 615, 290, 0, 0, 0, 0, 1010, 344, 0, 0, 0, 0, 1039, 529, 0, 0, 0, 0, 756, 587, 0, 0, 0, 0, 608, 59, 0, 0, 0, 0, 496, 516, 0, 0, 0, 0, 571, 604, 0, 0, 0, 0, 615, 290)
+}
+point_count = 8
 
 [node name="main" type="Node"]
 script = ExtResource("1_h2yge")
+arma = ExtResource("2_lquwl")
 
 [node name="cannon" parent="." instance=ExtResource("1_0xm2m")]
-position = Vector2(287, 124)
+position = Vector2(181, 143)
 
 [node name="floor" parent="." instance=ExtResource("2_h2yge")]
 position = Vector2(235, 274)
 
 [node name="planet" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(780, 174)
+position = Vector2(809, 139)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.52
+autostart = true
+
+[node name="nave" parent="." instance=ExtResource("6_7mycd")]
+position = Vector2(417, 132)
+
+[node name="spawnCrates" type="Path2D" parent="."]
+position = Vector2(75, 11)
+curve = SubResource("Curve2D_1bvp3")
+
+[node name="spawnCratesLocation" type="PathFollow2D" parent="spawnCrates"]
+position = Vector2(615, 290)
+rotation = 0.13586661
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
