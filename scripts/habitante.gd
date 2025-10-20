@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var animacion = $AnimatedSprite2D
 @onready var planeta = $"../Planeta"
+@onready var label: Label = $Label
 
 const MIRA = preload("uid://dpsg5dlxo7csm")
 
@@ -13,11 +14,15 @@ var ruta
 var objetivo_principal
 
 var sobre_piso = false
+var selected = false
 
 enum cuadrante_obj {PRIMERO, SEGUNDO, TERCERO, CUARTO}
 
 func _ready():
-	pass
+	add_to_group("habitante")
+
+func _process(delta: float) -> void:
+	label.visible = selected
 
 func _physics_process(delta):
 	var direccion_planeta = global_position.direction_to(planeta.global_position)
@@ -34,7 +39,7 @@ func _physics_process(delta):
 	elif movimientoAutomatico == false:
 		animacion.play("quieto")
 	
-	if Input.is_action_just_pressed("click"):
+	if Input.is_action_just_pressed("click") and selected:
 		var click_position = get_global_mouse_position()
 		ir_objetivo(click_position)
 	
@@ -48,9 +53,9 @@ func _physics_process(delta):
 			print("position.y: ", position.y)
 
 func desplazar(direccion:float, direccion_planeta:Vector2):
-	if direccion == -1:
-		animacion.flip_h = direccion
 	if direccion == 1:
+		animacion.flip_h = direccion
+	if direccion == -1:
 		animacion.flip_h = false
 	
 	animacion.play("caminar")

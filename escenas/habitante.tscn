@@ -1,106 +1,34 @@
-[gd_scene load_steps=18 format=3 uid="uid://4gxjwm3ru8j7"]
+[gd_scene load_steps=9 format=3 uid="uid://4gxjwm3ru8j7"]
 
-[ext_resource type="Texture2D" uid="uid://d25nkqbh4c231" path="res://assets/Fox Sprite Sheet.png" id="1_mb003"]
 [ext_resource type="Script" uid="uid://csi0syqb3a78a" path="res://scripts/habitante.gd" id="1_oolhp"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1lr5d"]
-atlas = ExtResource("1_mb003")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tgyc8"]
-atlas = ExtResource("1_mb003")
-region = Rect2(32, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7el8y"]
-atlas = ExtResource("1_mb003")
-region = Rect2(64, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c33j8"]
-atlas = ExtResource("1_mb003")
-region = Rect2(96, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r02e1"]
-atlas = ExtResource("1_mb003")
-region = Rect2(128, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hfwsr"]
-atlas = ExtResource("1_mb003")
-region = Rect2(160, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0h2w3"]
-atlas = ExtResource("1_mb003")
-region = Rect2(192, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mjxsm"]
-atlas = ExtResource("1_mb003")
-region = Rect2(224, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oolhp"]
-atlas = ExtResource("1_mb003")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ruhto"]
-atlas = ExtResource("1_mb003")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uk5hi"]
-atlas = ExtResource("1_mb003")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3c3g2"]
-atlas = ExtResource("1_mb003")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i3m5k"]
-atlas = ExtResource("1_mb003")
-region = Rect2(128, 0, 32, 32)
+[ext_resource type="Texture2D" uid="uid://dtcrt0b4y2fut" path="res://assets/Carpincho/carpincho 1.png" id="3_s776l"]
+[ext_resource type="Texture2D" uid="uid://itb6aiisoa4t" path="res://assets/Carpincho/carpincho 2.png" id="4_h21q0"]
+[ext_resource type="Texture2D" uid="uid://dmyd4tc1a6ccs" path="res://assets/Carpincho/carpincho 3.png" id="5_l6m6j"]
+[ext_resource type="Texture2D" uid="uid://b5qas203qm8s1" path="res://assets/Carpincho/carpincho 4.png" id="6_deumx"]
+[ext_resource type="Texture2D" uid="uid://csx5rappnk6qp" path="res://assets/Carpincho/carpincho quieto.png" id="6_s776l"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1lr5d"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1lr5d")
+"texture": ExtResource("3_s776l")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tgyc8")
+"texture": ExtResource("4_h21q0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7el8y")
+"texture": ExtResource("5_l6m6j")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_c33j8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r02e1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hfwsr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0h2w3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mjxsm")
+"texture": ExtResource("6_deumx")
 }],
 "loop": false,
 "name": &"caminar",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oolhp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ruhto")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uk5hi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3c3g2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i3m5k")
+"texture": ExtResource("6_s776l")
 }],
 "loop": false,
 "name": &"quieto",
@@ -116,6 +44,8 @@ script = ExtResource("1_oolhp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, 11)
+scale = Vector2(0.01, 0.01)
 sprite_frames = SubResource("SpriteFrames_1lr5d")
 animation = &"quieto"
 
@@ -124,3 +54,13 @@ position = Vector2(0.5, 8.5)
 shape = SubResource("RectangleShape2D_tgyc8")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = -2.0
+offset_top = -15.0
+offset_right = 38.0
+offset_bottom = 8.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "."
