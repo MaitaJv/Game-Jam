@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cms3kj1gge5u7"]
+[gd_scene load_steps=10 format=3 uid="uid://cms3kj1gge5u7"]
 
 [ext_resource type="PackedScene" uid="uid://db4sjv21fqbtx" path="res://cannon.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://7nkhodu6m2w2" path="res://main.gd" id="1_h2yge"]
@@ -6,12 +6,19 @@
 [ext_resource type="PackedScene" uid="uid://dwbqexm11ovi7" path="res://weapon.tscn" id="2_lquwl"]
 [ext_resource type="PackedScene" uid="uid://d22epk4buslmu" path="res://planet.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://de5h7mxs8lay2" path="res://nave.tscn" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://cm08gqee6p2mn" path="res://planet_movement.gd" id="6_272bh"]
 
 [sub_resource type="Curve2D" id="Curve2D_1bvp3"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 615, 290, 0, 0, 0, 0, 1010, 344, 0, 0, 0, 0, 1039, 529, 0, 0, 0, 0, 756, 587, 0, 0, 0, 0, 608, 59, 0, 0, 0, 0, 496, 516, 0, 0, 0, 0, 571, 604, 0, 0, 0, 0, 615, 290)
+"points": PackedVector2Array(0, 0, 0, 0, 615, 290, 0, 0, 0, 0, 1010, 344, 0, 0, 0, 0, 1039, 529, 0, 0, 0, 0, 756, 587, 0, 0, 0, 0, 608, 59, 0, 0, 0, 0, 496, 516, 0, 0, 0, 0, 571, 604, 0, 0, 0, 0, 615, 290, 0, 0, 0, 0, 684, 93, 0, 0, 0, 0, 1005, 150, 0, 0, 0, 0, 921, 245, 0, 0, 0, 0, 658, 153, 0, 0, 0, 0, 615, 290)
 }
-point_count = 8
+point_count = 13
+
+[sub_resource type="Curve2D" id="Curve2D_7mycd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 213, 492, 0, 0, 0, 0, 289, 431, 0, 0, 0, 0, 363, 410, 0, 0, 0, 0, 450, 412, 0, 0, 0, 0, 533, 414, 0, 0, 0, 0, 617, 421, 0, 0, 0, 0, 695, 441, 0, 0, 0, 0, 769, 485, 0, 0, 0, 0, 798, 548, 0, 0, 0, 0, 778, 600, 0, 0, 0, 0, 694, 632, 0, 0, 0, 0, 559, 643, 0, 0, 0, 0, 397, 623, 0, 0, 0, 0, 309, 606, 0, 0, 0, 0, 248, 577, 0, 0, 0, 0, 226, 545, 0, 0, 0, 0, 213, 492)
+}
+point_count = 17
 
 [node name="main" type="Node"]
 script = ExtResource("1_h2yge")
@@ -23,9 +30,6 @@ position = Vector2(181, 143)
 [node name="floor" parent="." instance=ExtResource("2_h2yge")]
 position = Vector2(235, 274)
 
-[node name="planet" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(809, 139)
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.52
 autostart = true
@@ -34,11 +38,26 @@ autostart = true
 position = Vector2(417, 132)
 
 [node name="spawnCrates" type="Path2D" parent="."]
+visible = false
 position = Vector2(75, 11)
 curve = SubResource("Curve2D_1bvp3")
 
 [node name="spawnCratesLocation" type="PathFollow2D" parent="spawnCrates"]
 position = Vector2(615, 290)
 rotation = 0.13586661
+
+[node name="planetMovement" type="Path2D" parent="."]
+curve = SubResource("Curve2D_7mycd")
+script = ExtResource("6_272bh")
+
+[node name="planetMovementFollow" type="PathFollow2D" parent="planetMovement"]
+position = Vector2(213, 492)
+rotation = -0.6763435
+
+[node name="planet" parent="planetMovement" instance=ExtResource("4_1bvp3")]
+position = Vector2(413, 465)
+
+[node name="planet" parent="." instance=ExtResource("4_1bvp3")]
+position = Vector2(698, 132)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

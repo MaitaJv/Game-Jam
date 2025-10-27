@@ -1,7 +1,7 @@
 class_name Projectile
 extends RigidBody2D
 
-@onready var planet: RigidBody2D = $"../planet"
+@onready var planet: RigidBody2D = $"../planetMovement/planet"
 
 @export var speed = 600
 
