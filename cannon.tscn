@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://db4sjv21fqbtx"]
+
+[ext_resource type="Script" uid="uid://dxvwgss77kjg0" path="res://cannon.gd" id="1_23j6s"]
+[ext_resource type="Texture2D" uid="uid://di3bs1vwt3t66" path="res://cannon.png" id="1_i10un"]
+[ext_resource type="Texture2D" uid="uid://cxs6a3yuxwoh2" path="res://stars.png" id="3_72ky0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_23j6s"]
+size = Vector2(99, 77)
+
+[node name="cannon" type="RigidBody2D"]
+position = Vector2(162, 93)
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_23j6s")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_i10un")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-3.5, 12.5)
+shape = SubResource("RectangleShape2D_23j6s")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(84, 1)
+metadata/_edit_group_ = true
+
+[node name="Marcador" type="Sprite2D" parent="Marker2D"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_72ky0")
+
+[node name="cooldown" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]

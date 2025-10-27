@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://d22epk4buslmu"]
+
+[ext_resource type="Texture2D" uid="uid://b3vqjg0qpfk8b" path="res://icon.png" id="1_1odxm"]
+[ext_resource type="Script" uid="uid://xg6crsxd15qr" path="res://planet.gd" id="1_mtr83"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mtr83"]
+radius = 129.09686
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a75xc"]
+radius = 274.06567
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x6khl"]
+radius = 132.0606
+
+[node name="planet" type="RigidBody2D"]
+position = Vector2(482, 179)
+collision_layer = 2
+collision_mask = 0
+mass = 10.0
+gravity_scale = 0.0
+script = ExtResource("1_mtr83")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("1_1odxm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_mtr83")
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+gravity_space_override = 3
+gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 500.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_a75xc")
+
+[node name="colisionArea" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="colisionArea"]
+shape = SubResource("CircleShape2D_x6khl")
+debug_color = Color(0.9695379, 0.6574925, 0.29023623, 0.41960785)
+
+[connection signal="body_entered" from="colisionArea" to="." method="_on_colision_area_body_entered"]
