@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bryetet35ciic"]
 
-[ext_resource type="Texture2D" uid="uid://u5jbviakh0l1" path="res://football.png" id="1_a85iw"]
-[ext_resource type="Script" uid="uid://cpf1rabarrae6" path="res://projectile.gd" id="1_qxf0c"]
+[ext_resource type="Texture2D" uid="uid://u5jbviakh0l1" path="res://assets/proyectiles/football.png" id="1_a85iw"]
+[ext_resource type="Script" uid="uid://cpf1rabarrae6" path="res://scripts/utils/projectile.gd" id="1_qxf0c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a85iw"]
 radius = 29.017237

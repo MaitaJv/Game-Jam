@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bduyj8xhmmelk"
-path="res://.godot/imported/planet03.png-a7319eb9af191a1963583eaec9d1ddfb.ctex"
+uid="uid://chst0c5bw3ghi"
+path="res://.godot/imported/sCrate.png-fa10cf0e6a46ac664e0049365bd841e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/planet03.png"
-dest_files=["res://.godot/imported/planet03.png-a7319eb9af191a1963583eaec9d1ddfb.ctex"]
+source_file="res://assets/items/sCrate.png"
+dest_files=["res://.godot/imported/sCrate.png-fa10cf0e6a46ac664e0049365bd841e5.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv17jfdh7glia"
-path="res://.godot/imported/crosshair005.png-74334deadcca1b7f5fc0f801a9bfb096.ctex"
+uid="uid://dwxv1hsets5c7"
+path="res://.godot/imported/Nave1PlanetaA.png-49236111a42d5e1e4198d196b32b59ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/crosshair005.png"
-dest_files=["res://.godot/imported/crosshair005.png-74334deadcca1b7f5fc0f801a9bfb096.ctex"]
+source_file="res://assets/naves/Nave1PlanetaA.png"
+dest_files=["res://.godot/imported/Nave1PlanetaA.png-49236111a42d5e1e4198d196b32b59ef.ctex"]
 
 [params]
 

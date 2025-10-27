@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwxv1hsets5c7"
-path="res://.godot/imported/Nave1PlanetaA.png-a388ee79b1bb97ac6acd9379d0a6c5bd.ctex"
+uid="uid://c60yxgpb0gf1r"
+path="res://.godot/imported/Destructible Objects Sprite Sheet.png-9d964b8e73aba3b8e9ec09d2d2ddb351.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Nave1PlanetaA.png"
-dest_files=["res://.godot/imported/Nave1PlanetaA.png-a388ee79b1bb97ac6acd9379d0a6c5bd.ctex"]
+source_file="res://assets/animaciones/Destructible Objects Sprite Sheet.png"
+dest_files=["res://.godot/imported/Destructible Objects Sprite Sheet.png-9d964b8e73aba3b8e9ec09d2d2ddb351.ctex"]
 
 [params]
 

@@ -1,12 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2syatk0fq20k"]
+[gd_scene load_steps=10 format=3 uid="uid://d2syatk0fq20k"]
 
-[ext_resource type="Script" uid="uid://c5e184njq2lwi" path="res://scripts/main.gd" id="1_laqre"]
-[ext_resource type="PackedScene" uid="uid://bqa65ginldjh2" path="res://escenas/planeta.tscn" id="2_rqc4g"]
-[ext_resource type="PackedScene" uid="uid://4gxjwm3ru8j7" path="res://escenas/habitante.tscn" id="3_tg4id"]
-[ext_resource type="Script" uid="uid://ceg6xwla318ab" path="res://scripts/selector_node.gd" id="4_cnsma"]
+[ext_resource type="Script" uid="uid://c5e184njq2lwi" path="res://scripts/planetMain.gd" id="1_laqre"]
+[ext_resource type="PackedScene" uid="uid://bqa65ginldjh2" path="res://escenas/planetas/planeta.tscn" id="2_rqc4g"]
+[ext_resource type="PackedScene" uid="uid://4gxjwm3ru8j7" path="res://escenas/personajes/habitante.tscn" id="3_tg4id"]
+[ext_resource type="Script" uid="uid://ceg6xwla318ab" path="res://scripts/utils/selector_node.gd" id="4_cnsma"]
 [ext_resource type="PackedScene" uid="uid://cl1j1y7awufwx" path="res://escenas/Recursos/metal.tscn" id="5_hnebv"]
+[ext_resource type="PackedScene" uid="uid://de5h7mxs8lay2" path="res://escenas/personajes/nave.tscn" id="6_tg4id"]
+[ext_resource type="Script" uid="uid://bb0ln37x11ekv" path="res://scripts/cambio_escena.gd" id="7_cnsma"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hnebv"]
+radius = 51.000057
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_laqre")
@@ -37,3 +42,16 @@ position = Vector2(706, -64.999985)
 rotation = 0.30411226
 collision_layer = 4
 collision_mask = 2
+
+[node name="nave" parent="." instance=ExtResource("6_tg4id")]
+position = Vector2(516, -76)
+rotation = -1.5945626
+
+[node name="cambioEscena" type="Area2D" parent="nave"]
+script = ExtResource("7_cnsma")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nave/cambioEscena"]
+shape = SubResource("CircleShape2D_hnebv")
+
+[connection signal="body_entered" from="nave/cambioEscena" to="nave/cambioEscena" method="_on_body_entered"]
+[connection signal="body_exited" from="nave/cambioEscena" to="nave/cambioEscena" method="_on_body_exited"]

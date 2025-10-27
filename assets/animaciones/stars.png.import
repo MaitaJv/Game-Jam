@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csgdbcm2tp3hn"
-path="res://.godot/imported/Stonewall_Spriteclip.png-c69e3089d194a7ebfadfaaaaf3c9499b.ctex"
+uid="uid://cxs6a3yuxwoh2"
+path="res://.godot/imported/stars.png-e58c19b3fcbeff319ad989614ba163d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Stonewall_Spriteclip.png"
-dest_files=["res://.godot/imported/Stonewall_Spriteclip.png-c69e3089d194a7ebfadfaaaaf3c9499b.ctex"]
+source_file="res://assets/animaciones/stars.png"
+dest_files=["res://.godot/imported/stars.png-e58c19b3fcbeff319ad989614ba163d4.ctex"]
 
 [params]
 

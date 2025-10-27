@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://66hvr3emfxt0"]
+
+[ext_resource type="Script" uid="uid://c0ay0xn1h22ab" path="res://scripts/mega_main.gd" id="1_4ag28"]
+
+[node name="megaMain" type="Node2D"]
+script = ExtResource("1_4ag28")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d25nkqbh4c231"
-path="res://.godot/imported/Fox Sprite Sheet.png-d9301f81c1dd1456ea860a216f808b0b.ctex"
+uid="uid://u5jbviakh0l1"
+path="res://.godot/imported/football.png-4b53c5cae906539124cf4397df04e547.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Fox Sprite Sheet.png"
-dest_files=["res://.godot/imported/Fox Sprite Sheet.png-d9301f81c1dd1456ea860a216f808b0b.ctex"]
+source_file="res://assets/proyectiles/football.png"
+dest_files=["res://.godot/imported/football.png-4b53c5cae906539124cf4397df04e547.ctex"]
 
 [params]
 

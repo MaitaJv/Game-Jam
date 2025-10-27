@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://de5h7mxs8lay2"]
 
-[ext_resource type="Script" uid="uid://ckiphhaijjnux" path="res://nave.gd" id="1_ilgfq"]
-[ext_resource type="Texture2D" uid="uid://dwxv1hsets5c7" path="res://Nave1PlanetaA.png" id="1_ltewx"]
+[ext_resource type="Script" uid="uid://ckiphhaijjnux" path="res://scripts/personajes/nave.gd" id="1_ilgfq"]
+[ext_resource type="Texture2D" uid="uid://dwxv1hsets5c7" path="res://assets/naves/Nave1PlanetaA.png" id="1_ltewx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ilgfq"]
 radius = 17.0

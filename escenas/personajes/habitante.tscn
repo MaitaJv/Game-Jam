@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://4gxjwm3ru8j7"]
 
-[ext_resource type="Script" uid="uid://csi0syqb3a78a" path="res://scripts/habitante.gd" id="1_oolhp"]
+[ext_resource type="Script" uid="uid://csi0syqb3a78a" path="res://scripts/personajes/habitante.gd" id="1_oolhp"]
 [ext_resource type="Texture2D" uid="uid://dtcrt0b4y2fut" path="res://assets/Carpincho/carpincho 1.png" id="3_s776l"]
 [ext_resource type="Texture2D" uid="uid://itb6aiisoa4t" path="res://assets/Carpincho/carpincho 2.png" id="4_h21q0"]
 [ext_resource type="Texture2D" uid="uid://dmyd4tc1a6ccs" path="res://assets/Carpincho/carpincho 3.png" id="5_l6m6j"]

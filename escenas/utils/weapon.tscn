@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dwbqexm11ovi7"]
 
-[ext_resource type="Script" uid="uid://bm4cc20apo0h5" path="res://weapon.gd" id="1_o2wld"]
-[ext_resource type="Texture2D" uid="uid://chst0c5bw3ghi" path="res://sCrate.png" id="1_swcir"]
+[ext_resource type="Script" uid="uid://bm4cc20apo0h5" path="res://scripts/utils/weapon.gd" id="1_o2wld"]
+[ext_resource type="Texture2D" uid="uid://chst0c5bw3ghi" path="res://assets/items/sCrate.png" id="1_swcir"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o2wld"]
 size = Vector2(45, 46)

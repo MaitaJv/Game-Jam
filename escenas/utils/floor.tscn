@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c3t7qr41i5ywy"]
 
-[ext_resource type="Texture2D" uid="uid://csgdbcm2tp3hn" path="res://Stonewall_Spriteclip.png" id="1_oj3tl"]
+[ext_resource type="Texture2D" uid="uid://csgdbcm2tp3hn" path="res://assets/utils/Stonewall_Spriteclip.png" id="1_oj3tl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cgngl"]
 size = Vector2(616, 106)

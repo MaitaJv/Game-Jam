@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dpsg5dlxo7csm"]
 
-[ext_resource type="Texture2D" uid="uid://bv17jfdh7glia" path="res://assets/crosshair005.png" id="1_5bqif"]
+[ext_resource type="Texture2D" uid="uid://bv17jfdh7glia" path="res://assets/utils/crosshair005.png" id="1_5bqif"]
 
 [node name="mira" type="Marker2D"]
 

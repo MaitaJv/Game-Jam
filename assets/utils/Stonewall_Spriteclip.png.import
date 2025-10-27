@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://u5jbviakh0l1"
-path="res://.godot/imported/football.png-7dba02022ada0a3ba298c0a040620a98.ctex"
+uid="uid://csgdbcm2tp3hn"
+path="res://.godot/imported/Stonewall_Spriteclip.png-559246d95be756afbf1fb241761883f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://football.png"
-dest_files=["res://.godot/imported/football.png-7dba02022ada0a3ba298c0a040620a98.ctex"]
+source_file="res://assets/utils/Stonewall_Spriteclip.png"
+dest_files=["res://.godot/imported/Stonewall_Spriteclip.png-559246d95be756afbf1fb241761883f1.ctex"]
 
 [params]
 

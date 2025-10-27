@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chst0c5bw3ghi"
-path="res://.godot/imported/sCrate.png-acda369bcb4c3e41bb9692e6b8d8bd08.ctex"
+uid="uid://bv17jfdh7glia"
+path="res://.godot/imported/crosshair005.png-f2de0f58d5e874b12dee3402143db161.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sCrate.png"
-dest_files=["res://.godot/imported/sCrate.png-acda369bcb4c3e41bb9692e6b8d8bd08.ctex"]
+source_file="res://assets/utils/crosshair005.png"
+dest_files=["res://.godot/imported/crosshair005.png-f2de0f58d5e874b12dee3402143db161.ctex"]
 
 [params]
 
