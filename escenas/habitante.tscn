@@ -36,7 +36,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tgyc8"]
-size = Vector2(19, 15)
+size = Vector2(12, 10.5)
 
 [node name="habitante" type="CharacterBody2D"]
 collision_layer = 2
@@ -50,7 +50,7 @@ sprite_frames = SubResource("SpriteFrames_1lr5d")
 animation = &"quieto"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 8.5)
+position = Vector2(0, 10.25)
 shape = SubResource("RectangleShape2D_tgyc8")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

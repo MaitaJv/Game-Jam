@@ -15,8 +15,9 @@ var objetivo_principal
 
 var sobre_piso = false
 var selected = false
+var bloqueado = false
 
-enum cuadrante_obj {PRIMERO, SEGUNDO, TERCERO, CUARTO}
+var inventario = []
 
 func _ready():
 	add_to_group("habitante")
@@ -27,30 +28,47 @@ func _process(delta: float) -> void:
 func _physics_process(delta):
 	var direccion_planeta = global_position.direction_to(planeta.global_position)
 	
+	up_direction = -direccion_planeta
+	
 	var direccion = Input.get_axis("Caminar Izquierda", "Caminar Derecha")
 	
 	rotation = direccion_planeta.angle() - deg_to_rad(90)
 	
-	if !sobre_piso:
+	if not is_on_floor():
 		caer(direccion_planeta)
 	
-	if direccion:
+	if direccion and !bloqueado:
 		desplazar(direccion, direccion_planeta)
 	elif movimientoAutomatico == false:
 		animacion.play("quieto")
 	
-	if Input.is_action_just_pressed("click") and selected:
+	if Input.is_action_just_pressed("click") and selected and !bloqueado:
 		var click_position = get_global_mouse_position()
 		ir_objetivo(click_position)
 	
-	if movimientoAutomatico and objetivo_principal != null:
-		#print("caminando")
+	if movimientoAutomatico and objetivo_principal != null and !bloqueado:
 		var distancia = objetivo_principal.distance_to(position)
 		if distancia > 20:
 			desplazar(ruta, direccion_planeta)
 		else:
 			movimientoAutomatico = false
 			print("position.y: ", position.y)
+	
+	move_and_slide()
+	
+	for i in range(get_slide_collision_count()):
+		var colision = get_slide_collision(i)
+		var cuerpo_colision = colision.get_collider()
+		
+		if cuerpo_colision in get_tree().get_nodes_in_group("recursos"):
+			bloqueado = true
+			cuerpo_colision.get_node("CollisionShape2D").disabled = true
+			
+			await recolectar()
+			
+			inventario.push_front({"recurso": cuerpo_colision.nombre,"cantidad": cuerpo_colision.cantidad})
+			print("inventario: ", inventario)
+			cuerpo_colision.queue_free()
 
 func desplazar(direccion:float, direccion_planeta:Vector2):
 	if direccion == 1:
@@ -60,12 +78,10 @@ func desplazar(direccion:float, direccion_planeta:Vector2):
 	
 	animacion.play("caminar")
 	velocity = direccion_planeta.orthogonal() * velocidad_valor * direccion
-	move_and_slide()
 
 func caer(direccion_planeta:Vector2):
 	animacion.play("caminar")
 	velocity = direccion_planeta * gravedad
-	move_and_slide()
 
 func ir_objetivo(click_position: Vector2):
 	var click_direccion = click_position - planeta.global_position
@@ -101,3 +117,7 @@ func caminar_al_objetivo(objetivo_v: Vector2, objetivo: Vector2):
 
 func ang_entre_v(objetivo_v: Vector2, personaje_v: Vector2) -> float:
 	return objetivo_v.angle_to(personaje_v)
+
+func recolectar():
+	await get_tree().create_timer(10).timeout
+	bloqueado = false

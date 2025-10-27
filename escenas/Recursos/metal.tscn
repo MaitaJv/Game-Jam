@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl1j1y7awufwx"]
+
+[ext_resource type="Script" uid="uid://1w3yhc8qjgfe" path="res://scripts/metal.gd" id="1_2wkwa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyobu"]
+size = Vector2(40, 40)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_2wkwa")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0.10777824, 0.32303405, 0.6829982, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dyobu")

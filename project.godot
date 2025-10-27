@@ -13,7 +13,6 @@ config_version=5
 config/name="GameJam"
 run/main_scene="uid://d2syatk0fq20k"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
 
 [input]
 
@@ -37,3 +36,4 @@ click={
 
 2d_physics/layer_1="Planetas"
 2d_physics/layer_2="Habitantes"
+2d_physics/layer_3="Recursos"
